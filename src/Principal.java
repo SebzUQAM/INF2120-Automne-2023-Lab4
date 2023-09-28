@@ -1,6 +1,4 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Optional;
 
 /*
@@ -8,7 +6,19 @@ import java.util.Optional;
 Décrivez et expliquez le fonctionnement de ces classes. Comment pourraient-elles être utilisées ?
 Reponse : voir les exercices suivant
  */
+
+/**
+ * Cette classe contient la méthode principale (point d'entrée du programme) et des méthodes génériques pour démontrer
+ * l'utilisation des classes PeutEtre, QQChose, Rien, et d'une méthode pour générer des valeurs intermédiaires.
+ */
 public class Principal {
+
+    /**
+     * La méthode principale du programme qui démontre l'utilisation des classes PeutEtre, QQChose, Rien, et de la méthode
+     * pour générer des valeurs intermédiaires.
+     *
+     * @param args Les arguments de ligne de commande (non utilisés dans cet exemple).
+     */
     public static void main(String[] args) {
         Integer[] tableau = new Integer[]{1,2,3,4,5,6};
         PeutEtre<Integer> peutEtre = trouverElement(tableau, 3);
@@ -30,6 +40,14 @@ public class Principal {
         System.out.println();
     }
 
+    /**
+     * Recherche un élément de type T dans un tableau générique et renvoie un PeutEtre contenant l'index de l'élément trouvé ou Rien s'il n'est pas trouvé.
+     *
+     * @param <T>       Le type d'élément à rechercher.
+     * @param a_tableau Le tableau générique dans lequel effectuer la recherche.
+     * @param a_element L'élément à rechercher dans le tableau.
+     * @return Un PeutEtre contenant l'index de l'élément ou Rien s'il n'est pas trouvé.
+     */
     public static <T> PeutEtre<Integer> trouverElement( T[] a_tableau, T a_element ){
         int index = 0;
         T element;
@@ -69,6 +87,14 @@ public class Principal {
     }
     */
 
+    /**
+     * Recherche un élément de type T dans un tableau générique et renvoie un Optional contenant l'index de l'élément trouvé ou empty() s'il n'est pas trouvé.
+     *
+     * @param <T>       Le type d'élément à rechercher.
+     * @param a_tableau Le tableau générique dans lequel effectuer la recherche.
+     * @param a_element L'élément à rechercher dans le tableau.
+     * @return Un Optional contenant l'index de l'élément ou empty() s'il n'est pas trouvé.
+     */
     public static <T> Optional<Integer> trouverElementAvecOptional(T[] a_tableau, T a_element ){
         int index = 0;
         T element;
@@ -84,6 +110,14 @@ public class Principal {
         return resultat;
     }
 
+    /**
+     * Génère une liste d'intervalles de valeurs entre deux nombres (départ et fin) en fonction du nombre d'intervalles spécifié.
+     *
+     * @param depart      La valeur de départ de l'interval.
+     * @param fin         La valeur de fin de l'interval.
+     * @param nbrInterval Le nombre d'intervalles à générer.
+     * @return Une ArrayList contenant les valeurs intermédiaires générées.
+     */
     public static ArrayList<Double> tweens( double depart, double fin, int nbrInterval ){
         ArrayList<Double> resultat = new ArrayList<>();
         double diff = (fin - depart) / nbrInterval;
