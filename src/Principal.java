@@ -52,7 +52,7 @@ public class Principal {
         int index = 0;
         T element;
         PeutEtre<Integer> resultat;
-        while ( index < a_tableau.length && (element = a_tableau[index]) != a_element ){
+        while ( index < a_tableau.length && !(element = a_tableau[index]).equals(a_element) ){
             index++;
         }
         if(index < a_tableau.length){
@@ -71,7 +71,7 @@ public class Principal {
         T element;
         if(a_tableau.length > 0) {
             element = a_tableau[index];
-            while( index + 1 < a_tableau.length && element != a_element ){
+            while( index + 1 < a_tableau.length && !element.equals(a_element) ){
                 index = index + 1; // ou index++, ou ++index, ou index += 1;
                 element = a_tableau[index];
             }
@@ -99,7 +99,7 @@ public class Principal {
         int index = 0;
         T element;
         Optional<Integer> resultat;
-        while ( index < a_tableau.length && (element = a_tableau[index]) != a_element ){
+        while ( index < a_tableau.length && !(element = a_tableau[index]).equals(a_element) ){
             index++;
         }
         if(index < a_tableau.length){
